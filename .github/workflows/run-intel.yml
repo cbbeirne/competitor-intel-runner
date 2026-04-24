@@ -1,0 +1,32 @@
+name: Competitor Intel — Monthly Run
+on:
+  schedule:
+    - cron: '0 8 1 * *'
+  workflow_dispatch:
+
+jobs:
+  run-intel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run competitor intel
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/run-intel.js
+
+      - name: Commit outputs
+        run: |
+          git config --global user.name "Intel Bot"
+          git config --global user.email "bot@corasystems.com"
+          git add intel-outputs/
+          git diff --staged --quiet || git commit -m "Intel run: $(date +%Y-%m-%d)"
+          git push
