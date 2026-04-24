@@ -1,0 +1,9 @@
+{
+  "name": "competitor-intel-runner",
+  "version": "1.0.0",
+  "description": "Monthly competitor intelligence runner for Cora Systems",
+  "main": "scripts/run-intel.js",
+  "scripts": {
+    "start": "node scripts/run-intel.js"
+  }
+}
