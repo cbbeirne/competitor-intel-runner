@@ -1,9 +1,8 @@
 {
   "name": "competitor-intel-runner",
-  "version": "1.0.0",
-  "description": "Monthly competitor intelligence runner for Cora Systems",
+  "version": "2.0.0",
+  "description": "Monthly competitor intel for Cora Systems",
   "main": "scripts/run-intel.js",
-  "scripts": {
-    "start": "node scripts/run-intel.js"
-  }
+  "scripts": { "start": "node scripts/run-intel.js" },
+  "dependencies": { "puppeteer": "^22.0.0" }
 }
